@@ -12,9 +12,9 @@
   },
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
+    "build": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore test.js,stories.js",
     "build:docs": "build-storybook -s public -o docs",
     "clean": "rimraf dist",
-    "build": "npm run clean && cross-env NODE_ENV=production babel src --out-dir dist --copy-files --ignore test.js,stories.js",    
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -35,13 +35,12 @@
   },
   "main": "dist/index.js",
   "private": false,
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": "https://github.com/CBIIT/cbiitss-react-components",
   "devDependencies": {
-    "bootstrap": "^4.5.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",    
     "@babel/cli": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
@@ -53,7 +52,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.5.0",
     "cross-env": "^7.0.2",
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2"
   }
 }
