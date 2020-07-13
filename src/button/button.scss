@@ -1,0 +1,18 @@
+.btn {
+    font-weight: 500;
+}
+
+.btn.disabled, .btn:disabled {
+    cursor: not-allowed;
+}
+
+.btn.btn-light {
+    background-image: linear-gradient(#ffffff, #f2f2f2);
+    color: black;
+    border-color: #f1f1f1; 
+}
+
+.btn.btn-light.disabled .btn.btn-light:disabled {
+    background-image: linear-gradient(#ffffff, #f4f4f4);
+}
+
