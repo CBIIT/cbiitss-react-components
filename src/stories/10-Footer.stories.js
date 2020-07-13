@@ -85,10 +85,10 @@ export function Examples() {
       <div className="mb-2">
         <NCIFooter
           style={{background: 'linear-gradient(45deg,#006789,#54beb9)'}}
-          title={<>
+          title={<div className="mb-4">
             <div className="h4 mb-0">Division of Cancer Epidemiology and Genetics</div>
             <div className="h6">at the National Cancer Institute</div>
-          </>}
+          </div>}
         />
       </div>
       <CodeRenderer removeIndentation code={`
