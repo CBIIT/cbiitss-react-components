@@ -6,12 +6,13 @@ export const defaultSections = {
 }
 
 export function NCIFooter({
+    className="bg-primary-dark text-light py-4",
     style = {},
 
-    title = <>
+    title = <div className="mb-4">
         <div className="h4 mb-0">National Cancer Institute</div>
         <div className="h6">at the National Institutes of Health</div>
-    </>,
+    </div>,
 
     columns = [
         {title: 'Contact Information', links: [
@@ -48,21 +49,17 @@ export function NCIFooter({
     </span>    
 }) {
 
-    return <footer className="bg-primary-dark text-light py-4" style={style}>
+    return <footer className={className} style={style}>
         <div className="container">
-            <div className="row mb-3">
-                <div className="col">
-                    {title}
-                </div>
-            </div>
+            {title}
 
             <div className="row mb-4">
-                {columns.map(column => 
-                    <div className="col-md">
+                {columns.map((column, columnIndex) => 
+                    <div key={`footer-column-${columnIndex}`} className="col-md">
                         <div className="h5 font-weight-normal">{column.title.toUpperCase()}</div>
                         <ul className="footer-links">
-                            {column.links.map(link => 
-                                <li>
+                            {column.links.map((link, linkIndex) => 
+                                <li key={`footer-column-${columnIndex}-link-${linkIndex}`} >
                                     <a href={link.href}>{link.title}</a>
                                 </li>
                             )}
@@ -75,8 +72,8 @@ export function NCIFooter({
 
         <div className="text-center">
             <ul className="footer-links inline">
-                {footerLinks.map(link => 
-                    <li><a href={link.href}>{link.title}</a></li>
+                {footerLinks.map((link, linkIndex) => 
+                    <li key={`footer-link-${linkIndex}`}><a href={link.href}>{link.title}</a></li>
                 )}
             </ul>
             {footerText}
