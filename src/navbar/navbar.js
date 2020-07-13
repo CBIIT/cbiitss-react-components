@@ -1,30 +1,23 @@
 import React from 'react';
+import { Navbar as BoostrapNavbar, Nav } from 'react-bootstrap';
 import './navbar.scss';
 
-export function Navbar({ links, onClick }) {
-  return (
-    <div className="bg-dark text-white shadow-sm">
-      <div className="px-0">
-        <div className="ml-3">
-          {links.map(({ href, title, active }, index) => (
-              <div
-                data-testid="Navbar"
-                className="d-inline-block"
-                key={title}>
-                <a
-                  data-testid={`Navbar-NavLink-${index}`}
-                  // key={title}
-                  className={`navlinks py-2 px-4 d-inline-block ${active ? 'active-navlinks' : ''}`}
-                  href={href}
-                  onClick={e => onClick && onClick(href)}>
-                  {title}
-                </a>
-                <div className="d-lg-none w-100"></div>
-              </div>
-            ))}
-          {/* <pre>{JSON.stringify(links)}</pre> */}
-        </div>
-      </div>
+function DefaultRenderer({index, href, title, active, onClick}) {
+  return <a
+    className={`nav-link text-white px-3 text-uppercase ${active ? 'active' : ''}`}
+    href={href}
+    onClick={e => onClick && onClick(href)}>
+    {title}
+  </a>
+}
+export function Navbar(props) {
+  const { links, onClick, renderer, innerClassName} = props;
+
+  return <BoostrapNavbar variant="dark" className="bg-primary py-0" {...props}>
+    <div className={innerClassName || "container-fluid"}>
+        <Nav className="mr-auto">
+            {links.map((link, index) => (renderer || DefaultRenderer)({...link, index, onClick}))}
+        </Nav>
     </div>
-  );
+  </BoostrapNavbar>
 }
