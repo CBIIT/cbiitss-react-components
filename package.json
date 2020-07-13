@@ -1,12 +1,12 @@
 {
   "name": "@cbiitss/react-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "private": false,
   "files": [
     "dist",
     "README.md"
-  ],  
+  ],
   "repository": "https://github.com/CBIIT/cbiitss-react-components",
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
