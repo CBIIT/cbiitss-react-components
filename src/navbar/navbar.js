@@ -11,9 +11,9 @@ function DefaultRenderer({index, href, title, active, onClick}) {
   </a>
 }
 export function Navbar(props) {
-  const { links, onClick, renderer, innerClassName} = props;
+  const { links, onClick, renderer, innerClassName, variant, className, expand, bg, fixed, sticky, collapseOnSelect, as, role, bsPrefix } = props;
 
-  return <BoostrapNavbar variant="dark" className="bg-primary py-0" {...props}>
+  return <BoostrapNavbar variant={variant || "dark"} className={className || "py-0"} bg={bg || "primary"} {...{expand, fixed, sticky, as, role, bsPrefix}}>
     <div className={innerClassName || "container-fluid"}>
         <Nav className="mr-auto">
             {links.map((link, index) => (renderer || DefaultRenderer)({...link, index, onClick}))}
